@@ -1,0 +1,214 @@
+1.first run command 
+  >>>>npm init -y  -----------------> json file 
+
+2.Second command
+  >>>>npm i express ----------------> fremwork for backend
+
+3.Third command 
+  >>>>npm i pg bcryptjs jsonwebtoken cookie-parser dotenv ------------>for databce,jsoncover,password sequre,priverid and password
+
+4.Fourth command
+  >>>> npm i nodemon -D ------------------>change to restart automatcliy dev dipendancy
+        |
+        |______---------change your joson file :-
+                                                |
+                                                |___ "main": "server.js", replace your server file
+                                                |
+                                                |___ "scripts": {
+                                                            "start": "node server.js",  
+                                                            "dev" : "nodemon server.js" 
+                                                      }, Change you dater point nad dev dipmnadancy
+5.Edit your server.js
+  .import express
+  .get(reqest,resposne)
+  .listen your server port
+
+
+6.Create DATABASE TABLE : {
+  CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)            
+}
+
+              NEXT
+               |
+               |
+              \|/
+             .env file create
+                             |
+                             |_{
+                                PORT=5000
+                                DB_HOST=localhost
+                                DB_PORT=5432
+                                DB_NAME=prem_auth
+                                DB_USER=postgres
+                                DB_PASSWORD=**********
+                                JWT_SECRET=123456
+                                CLIENT_URL=https://localhost:5173
+                             }
+              NEXT
+               |
+               |
+              \|/
+              confing folder
+                   |
+                   |___db.js
+                           |____CONNECT TO  DATABASE USING POOL
+                                                             {
+                                                                const pool = new Pool({
+                                                                host: process.env.DB_HOST,
+                                                                host: process.env.DB_PORT,
+                                                                host: process.env.DB_NAME,
+                                                                host: process.env.DB_USER,
+                                                                host: process.env.DB_PASSWORD,
+                                                             })
+                                                             }
+              NEXT
+               |
+               |
+              \|/
+               Rauts folder
+                   |
+                   |
+                   |____Auth.json
+                                |
+                                |____--- read to auth.js fiel `i am allrady to comment out the code`
+              NEXT
+               |
+               |
+              \|/
+              Middleware folder
+                     |
+                     |___Auth.js(in middlewere)
+                               |
+                               |__
+
+*CHECK API
+         |
+         |____POSTMEN
+
+
+
+******************************FRONT-END****************************************
+1.npm i vite@7 . 
+   |
+   |____create a react file 
+
+2.npm install tailwindcss @tailwindcss/vite
+   |
+   |____Tewinnd_css
+   |
+   |____go to ----- index.css-----and ctrl+A AND ctrl+V(@import "tailwindcss";)
+
+3. npm i axio react router-dom 
+   |
+   |
+   |____This is to alive to http make request and responce to bakend to fronend
+
+4. npm run dov
+   |
+   |
+   |_____Run you website
+
+5. npm install react-router-dom 
+   |
+   |
+   |____Router- for rounting your site and smootha to one page site
+
+6. create folders in src
+                        |
+                        |
+                        |----component
+                        |             |---Nvabar.jsx
+                        |             |---Navbar.css
+                        |             
+                        |---page
+                                |---Home.jsx
+                                |---Home.css
+                                |---Login.jsx
+                                |---Register.jsx
+
+7.Edit App.jsx:
+              -----import Router ,Routes ,Route ,Navigate
+              -----import react ,useState,useEffact
+              |
+              |
+              |__[api] >=> This is connect to backend
+                    |
+                    |-----useEffact :
+                                   [
+                                    useEffect(()=>{
+                                      const fetchUser = async ()=>{
+                                    try{--------TYR IS USER TO FUNCTION ITS RALY WORK
+
+                                      const res =await axios.get("http://localhost:5000/api/auth/me",{ withCredentials: true }) --->THIS IS USE TO WARE YOUR API ADDRES 
+                                      setUser(res.data)
+
+                                    }catch(error){------CATCH IS USED TO DOSNED WORK
+                                      setUser(null)
+                                      console.log("setuseer")
+
+                                    } finally{ IF DONSNT WORK OR WORK BOTH ,THEN FINALY RUN ALWAYSE
+
+                                      setLoding(false)----THIS IS LODING
+                                         }
+                                       }
+                                      fetchUser() CALL UNSER USE EFFCAT BECURE ITS RANDE ONLY ONE TIME 
+                                    },[]) --->[]<------  THIS IS RESION
+
+                                   ] ----->DONE<------
+                        |
+                        |---CREATE USE STATE AND USED: (useState to use to store read and start 
+                                                          Lets Explain:
+                                                             VAR          nextdata sare ans update  to (data)
+                                                              |            |
+                                                             const [data,setData] = useState(0)
+                                                                     |                  |
+                                                                   store              start to point 
+
+                                                             This is work to useState and hande to data becouse varable are not rerander in react ,react only read to useState data.
+                                                           ) 
+                                                    -------
+                                                    -------const [user,setUser]=useState(null)---store use datavnad upadate 
+                                                           const [error,setError]=useState()---- error handle
+                                                           const [loding,setLoding]=useState(true) ----loding oure website
+                                            |
+                                            |
+                                            |
+                                            |
+                         Many more i alrady mantion comment in our file
+                        _________________________________________________
+                          -------------------------------------------
+                            ---------------------------------------
+                                DEFILCULTY CREATE OUR PROJECT
+                                            |
+                                            |
+                                            |
+        ------------------------------------------------------------------------------------
+              PROBLEM                                 SOLUTION
+        1.word mistake                      |->Menuual check for console error track
+        2.structure problem                 |->use paper & pen 
+        3.api CHECK                         |->use source for YouTube
+        4.connect detabase to backend       |->use LLM and YouTube
+        5.routing error essue               |-steps CHECK
+        6.prokxy server use                 |->YouTube
+        7.error code handle                 |->Google 
+
+
+**************************************END OF INFORMATION*********************************************************
+                                         
+                  
+                          HOST YOUR SITE 
+                      ______________________
+                                |
+                                |
+                          Frontend (React): Vercel OR Netlify
+                          Backend (Express): Render
+                          Database (PostgreSQL): Neon OR Supabase          
+                                
+
+
