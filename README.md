@@ -432,3 +432,11 @@ useEffect(() => {
 - `finally`: Runs whether the request succeeds or fails.
 - `setLoading(false)`: Stops the loading screen.
 - `[]`: Runs the effect
+<img width="2880" height="1526" alt="image" src="https://github.com/user-attachments/assets/f4c44a55-c0de-421f-b07f-870ee49fbfeb" />
+
+<img width="2876" height="1538" alt="image" src="https://github.com/user-attachments/assets/4613b3e6-dae7-4e74-bc16-a5cde0fd139b" />
+
+
+<img width="2856" height="1532" alt="image" src="https://github.com/user-attachments/assets/06185bbe-50fd-4782-a614-1752cdc4bb5e" />
+
+
